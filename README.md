@@ -1,32 +1,19 @@
-# FastAPI template
+# bruh
 
-FastAPI template with
-- [asyncpg](https://github.com/MagicStack/asyncpg)
-- [sqlmodel](https://github.com/tiangolo/sqlmodel)
-- [alembic](https://github.com/sqlalchemy/alembic/)
-- [prometheus metrics](https://github.com/trallnag/prometheus-fastapi-instrumentator)
-- [pyctuator](https://github.com/SolarEdgeTech/pyctuator)
+## Run kafka using docker first (taken from faststream doc)
+```shell
+docker run -d --rm -p 9092:9092 --name kafka-mq \
+-e KAFKA_ENABLE_KRAFT=yes \
+-e KAFKA_CFG_NODE_ID=1 \
+-e KAFKA_CFG_PROCESS_ROLES=broker,controller \
+-e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER \
+-e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 \
+-e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT \
+-e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092 \
+-e KAFKA_BROKER_ID=1 \
+-e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 \
+-e ALLOW_PLAINTEXT_LISTENER=yes \
+bitnami/kafka:3.5.0
+```
 
-# Run
-
-## in development
-Use `uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload`.
-
-## in production
-Use `gunicorn app.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000`.
-
-# Docker
-
-Template comes with Dockerfile. Feel free to use it, it's ready for production.
-
-# Monitoring
-
-## Prometheus metrics
-
-Use http://127.0.0.1:8000/prometheus/metrics to access prometheus metrics.
-
-## Actuator (pyctuator)
-
-Use http://127.0.0.1:8000/pyctuator/ to list pyctuator routes.
-
-See [Pyctuator repository](https://github.com/SolarEdgeTech/pyctuator) for more information.
+Senkyu

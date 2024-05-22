@@ -17,4 +17,4 @@ async def hello(name: str, kafka: Annotated[KafkaBroker, Depends(broker)]):
 
 @kafka_router.subscriber("hellos_topic")
 async def handle_hello(name: str):
-    print(f"Someone sad hello to {name}!")
+    print(f"Someone said hello to {name}!")
