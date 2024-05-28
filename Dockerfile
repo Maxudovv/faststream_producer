@@ -10,4 +10,4 @@ WORKDIR /app
 
 HEALTHCHECK --interval=10s --timeout=5s --retries=5 CMD curl --fail http://127.0.0.1:8000/pyctuator/health || exit 1
 
-CMD ["gunicorn", "main:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "main:app", "--workers", "1", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
