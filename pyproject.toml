@@ -21,7 +21,7 @@ prometheus-fastapi-instrumentator = "^7.0.0"
 pyctuator = "^1.2.0"
 faststream = {extras = ["kafka"], version = "^0.5.7"}
 confluent-kafka = "^2.4.0"
-requests = "^2.32.2"
+requests = "^2.32.3"
 avro = "^1.11.3"
 
 
